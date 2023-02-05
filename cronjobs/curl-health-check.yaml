@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: curl-health-check-cronjob
+spec:
+  schedule: "*/3 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: curl-health-check-cronjob
+            image: curlimages/curl:7.87.0
+            imagePullPolicy: IfNotPresent
+            command:  ['sh', '-c', 'curl http://10.100.232.72:80/']
+          restartPolicy: OnFailure
+      backoffLimit: 3

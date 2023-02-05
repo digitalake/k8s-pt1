@@ -1,0 +1,14 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: curl-nodeport-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: curl-nodeport-job
+        image: curlimages/curl:7.87.0
+        command: ['sh', '-c', 'curl http://34.135.7.226:30080/']
+      restartPolicy: Never
+  backoffLimit: 3
