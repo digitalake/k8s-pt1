@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-service
-  namespace: kube-newbie
   labels:
     app: web
 spec:
