@@ -19,7 +19,7 @@ Task list:
 
 ### REALIZATION
 
-1. To get information about the worker node/s we need _kubectl_ commands:\
+__1. To get information about the worker node/s we need _kubectl_ commands:__\
   - To get nodes present in kubecluster:
   ```
   kubectl get nodes 
@@ -53,3 +53,22 @@ Task list:
   In my opinion, using export is better if you're planning to integrate such commands into some loop constructions for some scripts
   
   ![image](https://user-images.githubusercontent.com/109740456/216844927-cfbd1622-7aaf-48fc-adad-a94905e5a960.png)
+  
+  If you have empty node labels you can also add them by using:
+  ```
+  kubectl label node <node> <label>.kubernetes.io/<label>=<some-value>
+  ```
+  For example:
+  
+  <img src="https://user-images.githubusercontent.com/109740456/216851322-1b14e274-6727-4650-9b3e-055545cd1815.png" width="650">
+
+__2. Creating the namespace:__
+```
+kubectl create ns <ns-name>
+```
+<img src="https://user-images.githubusercontent.com/109740456/216851600-cadce98f-c9a0-42c1-b3af-248ee9ce2934.png" width="400">
+
+__3. Preparing and deploying:__
+
+For this task i've created sevral _.yaml_ files:
+  - 
