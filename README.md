@@ -70,5 +70,51 @@ kubectl create ns <ns-name>
 
 __3. Preparing and deploying:__
 
-For this task i've created sevral _.yaml_ files:
-  - 
+For this task i've created several _.yaml_ files to deploy 3 Nginx replical, 2 types of services, 2 jobs and 1 cronjob.
+
+Command to apply:
+```
+kubectl apply -f <path-to-file-or-dir> -n <namespace>
+```
+Screenshots:
+
+  - Namespaces:
+  
+  <img src="https://user-images.githubusercontent.com/109740456/216852727-b2205a41-bc78-4bc1-b941-e93f3f201530.png" width="460">
+  
+  - Pods:
+  
+<img src="https://user-images.githubusercontent.com/109740456/216852491-cdf988dc-242f-498c-b934-622af8388654.png" width="600">
+
+  - Deployments
+  
+<img src="https://user-images.githubusercontent.com/109740456/216852583-02886cca-7577-4d05-ae12-7d2b1d844373.png" width="550">
+
+  - Services
+  
+  For creating node-port Service I've opened 30080 tcp port with adding additional rule in TF code:
+  
+<img src="https://user-images.githubusercontent.com/109740456/216853012-31101852-7eb9-4147-9b14-712b85605de3.png" width="400">
+  
+<img src="https://user-images.githubusercontent.com/109740456/216852624-891ca3a5-fe82-4075-8532-55d0207d81be.png" width="550">
+
+  - Jobs
+  
+<img src="https://user-images.githubusercontent.com/109740456/216852679-07896ce3-e352-4221-b1fb-e8d2af946854.png" width="500">
+  
+ Logs for curl-clusterip-job  
+    
+<img src="https://user-images.githubusercontent.com/109740456/216853317-1dd5a3a5-1c30-43a1-af4e-7242ee15f8c1.png" width="500">
+    
+ Logs for curl-nodeport-job
+
+<img src="https://user-images.githubusercontent.com/109740456/216853347-a05957c4-1133-4fe3-bc43-e1a2cfe697b9.png" width="500">
+
+ Logs for curl-health-check-cronjob
+ 
+ <img src="https://user-images.githubusercontent.com/109740456/216854024-5a96da2a-15c1-43f4-a16c-6ff0edde5d8c.png" width="600">
+
+
+
+
+
