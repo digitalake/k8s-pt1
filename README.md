@@ -72,6 +72,8 @@ __3. Preparing and deploying:__
 
 For this task i've created several _.yaml_ files to deploy 3 Nginx replical, 2 types of services, 2 jobs and 1 cronjob.
 
+Its nice to use kubectl command with -n option instead of hardcoding the namespace in .yaml files. In such way its possible to reuse .yaml in different namespaces.
+
 Command to apply:
 ```
 kubectl apply -f <path-to-file-or-dir> -n <namespace>
@@ -79,19 +81,29 @@ kubectl apply -f <path-to-file-or-dir> -n <namespace>
 Screenshots:
 
   - Namespaces:
+  ```
+  kubectl get namespaces
+  ```
   
   <img src="https://user-images.githubusercontent.com/109740456/216852727-b2205a41-bc78-4bc1-b941-e93f3f201530.png" width="460">
   
   - Pods:
+  ```
+  kubectl get pods -n <ns>
+  ```
   
 <img src="https://user-images.githubusercontent.com/109740456/216852491-cdf988dc-242f-498c-b934-622af8388654.png" width="600">
 
   - Deployments
-  
+  ```
+  kubectl get deployments - n <ns>
+  ```
 <img src="https://user-images.githubusercontent.com/109740456/216852583-02886cca-7577-4d05-ae12-7d2b1d844373.png" width="550">
 
   - Services
-  
+  ```
+  kubectl get svc - n <ns>
+  ```
   For creating node-port Service I've opened 30080 tcp port with adding additional rule in TF code:
   
 <img src="https://user-images.githubusercontent.com/109740456/216853012-31101852-7eb9-4147-9b14-712b85605de3.png" width="400">
@@ -99,8 +111,16 @@ Screenshots:
 <img src="https://user-images.githubusercontent.com/109740456/216852624-891ca3a5-fe82-4075-8532-55d0207d81be.png" width="550">
 
   - Jobs
+  ```
+  kubectl get job - n <ns>
+  ```
   
 <img src="https://user-images.githubusercontent.com/109740456/216852679-07896ce3-e352-4221-b1fb-e8d2af946854.png" width="500">
+
+For getting logs:
+```
+kubectl logs <obj> -n <ns>
+```
   
  Logs for curl-clusterip-job  
     
